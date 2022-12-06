@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/6817205a99.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'özelders/style.css' %}">
+    <title>
+        BASE | {% block title %}
+        Yazılım
+        {% endblock title %}</title>
+</head>
+<body>
+    {% include "özelders/navbar.html" %}
+
+
+    <div class="container  mt-5 pt-2">
+        <div class="   my-5">
+          {% for i in yazilim  %}
+            <div class="card " >
+                  <img src="{{ i.resim.url }}" class="img-fluid p-2 "  style="width: 28rem;" alt="resim görüntülenemiyor"  >
+                <div class="card-body">
+                  <h5 class="card-title fw-bold ">
+                        {{i.baslik}}
+                  </h5>
+                  <p  class=" ">{{ i.aciklama|truncatewords:"25"|linebreaks }}</p>
+                  <a href="{% url 'yazilim_detay' i.slug %}" class="btn btn-warning shadow">Detaylı Oku</a>
+                </div>
+              </div>
+              
+  
+          {% endfor %}
+        </div>
+       </div>
+     
+       
+       {% include "özelders/footer_in.html" %}
+     
+   
+     
+
+
+
+     
+</body>
+</html>

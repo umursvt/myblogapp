@@ -1,0 +1,48 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/6817205a99.js" crossorigin="anonymous"></script>
+ 
+  <title>Document</title>
+</head>
+<body>
+  <div class="container main  ">
+    <div class="row">
+      <div class=" col my-5  ">
+        <p class=" shadow p-3 mb-5 bg-warning fw-bold rounded text-center " >Öğrencilerim</p>
+        {% for öğrenci in öğrenci  %}
+          <p class=" border text-center shadow " >
+            {{öğrenci.isim_soyisim}}
+          </p>
+        {% endfor %}    
+      </div>
+
+      <div class=" col  mx-3 my-5  ">
+        <p class=" shadow p-3 mb-5 bg-warning fw-bold rounded text-center " >Bugünün Dersleri</p>
+        {% for today in today  %}
+          <p class=" border text-center shadow " >
+            {{today}}
+          </p>
+        {% endfor %}    
+      </div>
+
+      <div class="  col mx-3 my-5">
+        <p class=" shadow p-3 mb-5 bg-warning fw-bold rounded text-center " >Bu Ayın dersler</p>
+        {% for month in month  %}
+          <p class=" border text-center shadow " >
+            {{month}}
+          </p>
+        {% endfor %}    
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+

@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'özelders/style.css' %}">
+    <script src="https://kit.fontawesome.com/6817205a99.js" crossorigin="anonymous"></script>
+    <title>BASE | {% block title %}
+        Matematik
+        {% endblock title %} </title>
+</head>
+<body>
+    
+    {% include "özelders/navbar.html" %}
+
+    {% for i in matematik  %}
+    <div class="container mt-2   p-5 mb-5"  >
+      <div class="row">
+        <div class=" col-xl-6 col-lg-8 col-md-10 col-sm-12 py-5 ">
+          <img src="{{ i.resim.url }}"  class="img-fluid" alt=""   >
+          <p class=" my-3 " >{{ i.tarih }}</p>
+        </div>
+        <div class="">
+          <h3>{{i.baslik}}</h3>
+          <p>{{i.aciklama}}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    
+    
+    {% include 'özelders/footer_in.html' %}
+
+    
+
+
+    
+</body>
+</html>
