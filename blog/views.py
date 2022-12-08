@@ -8,7 +8,7 @@ from django.contrib import messages
 # Create your views here.
 
 def kripto(request):
-    kripto=Kripto.objects.all()
+    kripto=Kripto.objects.all().order_by('-id')
     for i in kripto:
         print(i.baslik, i.resim)
 
